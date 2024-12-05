@@ -8,16 +8,15 @@ class TestController extends Controller
 {
     public function runJob()
     {
-        // Example: Running the JobDemoClass with a message
-        runBackgroundJob(
-            'App\\Jobs\\JobDemoClass',  // Class name
-            'processq',  // Method name
-            ['name', 'email'],  // Parameters
-            3,  // Max retries
-            15,  // Delay in seconds
-            1   // Priority
-        );
 
+        runBackgroundJob(
+            'App\\Jobs\\JobDemoClass',
+            'process',
+            ['name', 'email'],
+            3,
+            15,
+            1   
+        );
         return response()->json(['message' => 'ClassMethod is running in the background.']);
     }
 }
